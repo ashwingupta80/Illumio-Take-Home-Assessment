@@ -6,8 +6,8 @@ The Flow Log Processor is a command-line tool designed to parse AWS VPC flow log
 
 ## How to Run and Get Required Output Files
 1. Required Input files-> `flow_logs.txt`, `lookup_table.csv`, `protocol-numbers-1.csv`. Note- 'protocol-numbers-1.csv' contains mapping of IANA mapping of portocols and keywords (For example- tcp, udp).
-2. Using command line/ terminal navigate to folder `AshwinGupta_Illumio_TakeHomeAssessment`.
-3. Run `python src/flow_log_processor.py` command on terminal/  command line to output `tag_counts.csv` and `port_protocol_counts.csv` files that contain count of matches for each tag and Count of matches for each port/protocol combination respectively.
+2. Using command line navigate to folder `Illumio_Take_Home_Assessment`.
+3. Run `python src/flow_log_processor.py` command on command line to output `tag_counts.csv` and `port_protocol_counts.csv` files that contain count of matches for each tag and Count of matches for each port/protocol combination respectively.
 
 ## Dependencies
 
@@ -18,15 +18,14 @@ The program is written in Python and requires Python 3.8 or higher.
 The program relies on Python's standard libraries, which should be available in any standard Python installation:
 
 - `csv`: For reading and processing CSV files.
-- `collections`: For counting tag and port/protocol occurrences.
 
 ## Features
 
-- **Flow Log Parsing**: Supports AWS VPC flow log format (version 2).
+- **Flow Log Parsing**: Supports AWS flow log format (version 2).
 - **Tagging**: Matches flow log entries to tags based on `dstport` and `protocol`.
 - **Case-Insensitive Matching**: Handles tags and protocols in a case-insensitive manner.
 - **Detailed Output**: Generates comprehensive output files, including tag counts and port/protocol combination counts.
-- **Error Handling**: Ensures untagged flow log entries are categorized under the `Untagged` tag.
+- **Error Handling**: If AWS flow log does not contain 14 parts, then the log is skipped. Moreover, code ensures untagged flow log entries are categorized under the `Untagged` tag. 
 
 ## Assumptions
 
@@ -46,5 +45,3 @@ The program relies on Python's standard libraries, which should be available in 
 - **`tag_counts.csv`**: Output file that contains the count of matches for each tag.
 - **`port_protocol_counts.csv`**: Output file that contains the count of matches for each port/protocol combination.
 
-
-No external dependencies or packages are required.
