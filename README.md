@@ -41,7 +41,7 @@ The program relies on Python's standard libraries, which should be available in 
 - **`tests/test_flow_log_processor.py`**: Test script for validating the functionality of the main script-> defines unit tests.
 - **`flow_logs.txt`**: Provided input file containing AWS VPC flow log data.
 - **`lookup_table.csv`**: Provided input file containing the tag lookup table.
-- **`protocol-numbers-1.csv`**: Downloaded input file that maps IANA portocols to keywords (For example- tcp, udp).
+- **`protocol-numbers-1.csv`**: Input file containing mapping of IANA mapping of portocols and keywords (For example- tcp, udp). Source- https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
 - **`tag_counts.csv`**: Output file that contains the count of matches for each tag.
 - **`port_protocol_counts.csv`**: Output file that contains the count of matches for each port/protocol combination.
 
